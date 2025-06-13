@@ -1,0 +1,28 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+    </head>
+        <header>
+            <img src="{{url_for('static', filename='images/NextTask.png')}}" alt="" class="logo">
+            <h1>Bem vindo, {{nome}}</h1>
+            <a href="">SAIR</a>
+        </header>
+        <main>
+            <section class="container_left">
+                <section class="teste">
+                    <img src="{{url_for('static', filename='IMAGEM.avif')}}" alt="">
+                </section>
+            </section> 
+            <section class="container_right">
+                <form action="" method="POST">
+                    <input type="text" name="task" id="">
+                    <input type="submit" name="" value="ADICIONAR" id="btn_adicionar">
+                </form>
+            </section>
+
+        </main>
+    </html> 

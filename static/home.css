@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 90vh;
+    padding: 10px;
+    border-top: 2px solid #22C55E;
+    background-color: #e4e4e4;
+    background: linear-gradient(to left, #1e3a8a, #11998E, #22C55E);
+
+}
+.container_left{
+    width: 50%;
+    background-color: white;
+}
+.teste{
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+}
+header{
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    justify-content: space-around;
+    border-bottom: 2px solid #1e3a8a;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    background-color: #fff;
+    width: 600px;
+    gap: 10px;
+}
+input{
+    width: 300px;
+    height: 35px;
+}
+#btn_adicionar{
+    background: linear-gradient(to left, #1e3a8a, #11998E, #22C55E);
+    width: 200px;
+    color: #fff;
+    border: none;
+}
