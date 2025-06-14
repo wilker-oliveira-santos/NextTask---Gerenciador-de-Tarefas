@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+        <!--<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">-->
     </head>
         <header>
             <img src="{{url_for('static', filename='images/NextTask.png')}}" alt="" class="logo">
@@ -21,10 +21,11 @@
                 <form action="/cadastro" method="POST">
                     <input type="text" name="task" placeholder="Insira uma Tarefa" >
                     <input type="date" name="data_task" id="data_task">
-                    <label for="nivel"> Nível </label>
+                    <label for="nivel"> Prioridade </label>
                     <select name="nivel" id="nivel_tarefa">
                         <option value="urgente"> Urgente </option>
                         <option value="moderado"> Moderado </option>
+                        <option value="baixo"> Baixo</option>
                     </select>
                     <section class="format_icon_btn_cad">
                         <input type="submit" name="enviar" value="CADASTRAR" id="btn_adicionar">
@@ -33,13 +34,22 @@
             </section>
             <table>
                 <tr>
-                    <td text-align="center"> TAREFAS </td>
-                    <td text-align="center"> DATA </td>
+                    <td text-align="center"> Tarefa </td>
+                    <td text-align="center"> Data </td>
+                    <td text-align="center"> Prioridade </td>
+                    <td text-align="center"> Status</td>
                 </tr>
                 <tr>
                     <td> {{tarefas}} </td>
                     <td> {{data}} </td>
                     <td> {{nivel}} </td>
+                    <td> 
+                        <select name="status" id="status_tarefa">
+                            <option value="pendente"> Pendente</option>
+                            <option value="concluido"> Concluído</option>
+                            <option value="em_andamento"> Em andamento</option>
+                        </select>
+                    </td>
                 </tr>
             </table>
         </main>

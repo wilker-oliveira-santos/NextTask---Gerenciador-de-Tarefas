@@ -13,9 +13,11 @@ def cad_tarefas():
     nivel = request.form['nivel']
 
     if(nivel=="moderado"):
-        tarefa_nivel.append("MODERADO")
+        tarefa_nivel.append("Moderado")
+    elif(nivel=="urgente"):
+        tarefa_nivel.append("Urgente")
     else:
-        tarefa_nivel.append("URGENTE")
+        tarefa_nivel.append("Baixo")
     
 
     tarefas_nome.append(task)
