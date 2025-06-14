@@ -18,11 +18,29 @@
                 </section>
             </section> 
             <section class="container_right">
-                <form action="" method="POST">
-                    <input type="text" name="task" id="">
-                    <input type="submit" name="" value="ADICIONAR" id="btn_adicionar">
+                <form action="/cadastro" method="POST">
+                    <input type="text" name="task" placeholder="Insira uma Tarefa" >
+                    <input type="date" name="data_task" id="data_task">
+                    <label for="nivel"> Nível </label>
+                    <select name="nivel" id="nivel_tarefa">
+                        <option value="urgente"> Urgente </option>
+                        <option value="moderado"> Moderado </option>
+                    </select>
+                    <section class="format_icon_btn_cad">
+                        <input type="submit" name="enviar" value="CADASTRAR" id="btn_adicionar">
+                    </section>
                 </form>
             </section>
-
+            <table>
+                <tr>
+                    <td text-align="center"> TAREFAS </td>
+                    <td text-align="center"> DATA </td>
+                </tr>
+                <tr>
+                    <td> {{tarefas}} </td>
+                    <td> {{data}} </td>
+                    <td> {{nivel}} </td>
+                </tr>
+            </table>
         </main>
     </html> 

@@ -17,3 +17,5 @@ def receber_dados():
 
     cad_email.append(email)
     return render_template('home.html', email=email, list=list , nome=nome, cad_email=cad_email)
+
+
