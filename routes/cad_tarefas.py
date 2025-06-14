@@ -7,19 +7,22 @@ up_route  = Blueprint('update', __name__)
 
 tarefas = []
 
-@cad_route.route('/cadastro', methods=['POST'])
+@cad_route.route('/', methods=['GET', 'POST'])
+@cad_route.route('/cadastro', methods=['GET', 'POST'])
 def cad_tarefas():
-    task = request.form['task']
-    data = request.form['data_task']
-    nivel = request.form['nivel'].upper()
+    if request.method == 'POST':
+        task = request.form['task']
+        data = request.form['data_task']
+        nivel = request.form['nivel'].upper()
 
-    tarefas.append({
-        "tarefa": task,
-        "data": data,
-        "nivel": nivel
-    })
+        tarefas.append({
+            "tarefa": task,
+            "data": data,
+            "nivel": nivel
+        })
 
-    return render_template('home.html', tarefas=tarefas) 
+    return render_template('home.html', tarefas=tarefas)
+
 
 @del_route.route('/delete', methods=['POST'])
 def del_tarefa():
@@ -38,8 +41,15 @@ def del_tarefa():
 @up_route.route('/update', methods=['POST'])
 def up_tarefa():
     id_tarefa = int(request.form['id'])
-    tarefas.pop(id_tarefa)
+    tarefa = tarefas[id_tarefa]
+    return render_template('update.html', tarefa=tarefa, id=id_tarefa)
+
+@up_route.route('/salvar', methods=['POST'])
+def salvar_tarefa_editada():
+    id_tarefa = int(request.form['id'])
+    tarefas[id_tarefa]['tarefa'] = request.form['tarefa']
+    tarefas[id_tarefa]['data'] = request.form['data']
+    tarefas[id_tarefa]['nivel'] = request.form['nivel'].upper()
 
     return render_template('home.html', tarefas=tarefas)
-    
 
