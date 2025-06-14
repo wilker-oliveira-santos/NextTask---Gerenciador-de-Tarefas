@@ -1,12 +1,14 @@
 from flask import Blueprint,render_template,request
 
-login_route = Blueprint('login', __name__)
+index_route = Blueprint('index', __name__)
 
-cad_email = []
-
-@login_route.route('/')
-def login():
+@index_route.route('/')
+def index():
     return render_template('index.html')
+
+@index_route.route('/home')
+def home():
+    return render_template('home.html')
 
 """@login_route.route('/home', methods=['POST'])
 def receber_dados():
