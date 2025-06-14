@@ -17,22 +17,6 @@
                     <img src="{{url_for('static', filename='IMAGEM.avif')}}" alt="">
                 </section>
             </section> 
-            <section class="container_right">
-                <form action="/cadastro" method="POST">
-                    <input type="text" name="task" placeholder="Insira uma Tarefa" >
-                    <input type="date" name="data_task" id="data_task">
-                    <label for="nivel"> Prioridade </label>
-                    <select name="nivel" id="nivel_tarefa">
-                        <option value="urgente"> Urgente </option>
-                        <option value="moderado"> Moderado </option>
-                        <option value="baixo"> Baixo</option>
-                    </select>
-                    <section class="format_icon_btn_cad">
-                        <input type="submit" name="enviar" value="CADASTRAR" id="btn_adicionar">
-                    </section>
-                </form>
-            </section>
-            {%  if tarefas  %}
                 <table border="2px solid blue">
                     <tr>
                         <td text-align="center"> Tarefa </td>
@@ -61,8 +45,5 @@
                         </tr>
                     {% endfor %}
                 </table>
-            {% else %}
-                <h1> Insira novas tarefas!! </h1>
-            {% endif %}
         </main>
     </html> 
