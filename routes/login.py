@@ -8,7 +8,7 @@ cad_email = []
 def login():
     return render_template('index.html')
 
-@login_route.route('/home', methods=['POST'])
+"""@login_route.route('/home', methods=['POST'])
 def receber_dados():
 
     email = request.form['email']
@@ -16,6 +16,6 @@ def receber_dados():
 
 
     cad_email.append(email)
-    return render_template('home.html', email=email, list=list , nome=nome, cad_email=cad_email)
+    return render_template('home.html', email=email, list=list , nome=nome, cad_email=cad_email)"""
 
 

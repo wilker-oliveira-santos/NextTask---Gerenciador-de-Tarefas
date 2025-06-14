@@ -2,78 +2,83 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+    color: white;
 }
+
 main{
     display: flex;
     align-items: center;
-    min-height: 100vh;
-}
-.container_left{
-    display: flex;
+    min-height: 80vh;
     justify-content: center;
-    align-items: center ;
-    width: 50%;
+    width: 1500px;
 }
-.container_right{
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+
+header{
     display: flex;
-    background-image: url(images/background.png);
-    justify-content: center;
     align-items: center;
-    width: 50%;
-    min-height: 100vh;
+    justify-content: space-around;
+    min-height: 3vh;
+    gap:500px;
 }
-.text_next{
-    color: #22C55E;
+
+header img{
+    width: 7rem;
+    height: 7rem;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.2));
 }
-.text_task{
-    color: #1e3a8a;
+
+li{
+    list-style: none;
 }
-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: aliceblue;
-    width: 400px;
+
+figure img{
+    width: 500px;
     height: 400px;
-    gap: 20px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    border-radius: 10px;
 }
-label{
-    display: none;
-    text-align: left;
-    width: 70%;
-}
-.container_right input{
-    width: 300px;
-    height: 35px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-::placeholder {
-    text-align: center;
-}
-.format_icons_input{
-    position: relative;
-}
-.container_right h1{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding: 20px;
-}
-svg{
-    top: 6px;
-    position:absolute;
-    left: 20px;
-}
-#btn_enviar{
-    background: linear-gradient(to left, #1e3a8a, #11998E, #22C55E);
-    border: none;
-    padding: 7px;
-    margin-top: 10px;
-    color: #fff;
-}
-.format_icon_btn_login{
+
+.containerLeft{
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    min-height: 80vh;
+    gap: 20px;
+}
+
+.containerRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    min-height: 80vh;
+
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    text-align: justify;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-left: 100px;
+}
+
+h1{
+    font-size: 30px;
+    text-align: justify;
+    width: 400px;
+    margin-left: 100px;
 }
