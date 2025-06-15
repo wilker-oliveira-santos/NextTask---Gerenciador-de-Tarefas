@@ -5,64 +5,82 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Home </title>
         <link rel="shortcut icon" type="image/x-icon" href="./static/images/favicon.ico">
-        <!--<link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">-->
+        <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
     </head>
-        <header>
-            <img src="{{url_for('static', filename='images/NextTask.png')}}" alt="" class="logo">
-            <h1>Bem vindo ao Next Task </h1>
-        </header>
-        <main>
-            <section class="container_left">
-                <section class="teste">
-                    <img src="{{url_for('static', filename='IMAGEM.avif')}}" alt="">
-                </section>
-            </section> 
-            <section class="container_right">
-                <form action="/cadastro" method="POST">
-                    <input type="text" name="task" placeholder="Insira uma Tarefa" >
-                    <input type="date" name="data_task" id="data_task">
-                    <label for="nivel"> Prioridade </label>
-                    <select name="nivel" id="nivel_tarefa">
-                        <option value="urgente"> Urgente </option>
-                        <option value="moderado"> Moderado </option>
-                        <option value="baixo"> Baixo</option>
-                    </select>
-                    <section class="format_icon_btn_cad">
-                        <input type="submit" name="enviar" value="CADASTRAR" id="btn_adicionar">
-                    </section>
-                </form>
-            </section>
-            {%  if tarefas  %}
-                <table border="2px solid blue">
-                    <tr>
-                        <td text-align="center"> Tarefa </td>
-                        <td text-align="center"> Data </td>
-                        <td text-align="center"> Prioridade </td>
-                        <td text-align="center"> Status</td>
-                    </tr>
-                    {% for item in tarefas %}
-                        <tr>
-                            <td> {{item.tarefa}} </td>
-                            <td> {{item.data}} </td>
-                            <td> {{item.nivel}} </td>
-                            <td> 
-                                <select name="status" id="status_tarefa">
-                                    <option value="pendente"> Pendente</option>
-                                    <option value="concluido"> Concluído</option>
-                                    <option value="em_andamento"> Em andamento</option>
+    <body>
+        <img src="{{ url_for('static', filename='images/background.png') }}" alt="fundo" class="background-image">
+            <header>
+                <a href="{{ url_for('index.index') }}"><img src="{{ url_for('static', filename='images/NextTask-white.png') }}" alt=""></a>
+            </header>
+            <main>
+                <section class="container_main">
+                    <form action="/cadastro" method="POST" class="form_container_main">
+                        <img src="{{url_for('static', filename='images/NextTask.png')}}" alt="" class="logo">
+                        <label for="">Tarefa:</label>
+                        <input type="text" name="task" placeholder="Insira uma Tarefa" required>
+                        <section class="format_container_level">
+                            <section class="date">
+                                <label for="Data">Data:</label>
+                                <input type="date" name="data_task" id="data_task">
+                            </section>
+                            <section class="level">
+                                <label for="nivel"> Prioridade </label>
+                                <select name="nivel" id="nivel_tarefa">
+                                    <option value="urgente"> Urgente </option>
+                                    <option value="moderado"> Moderado </option>
+                                    <option value="baixo"> Baixo</option>
                                 </select>
-                            </td>
-                            <td>
-                                <form action="/delete" method="POST"> <input type="hidden" name="id" value="{{ loop.index0 }}"> <input type="submit" name="enviar" value="DELETAR" id="btn_deletar"> </form>
-                            </td>
-                            <td>
-                                <form action="/update" method="POST"> <input type="hidden" name="id" value="{{ loop.index0 }}"> <input type="submit" name="enviar" value="UPDATE" id="btn_update"> </form>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
-            {% else %}
-                <h1> Insira novas tarefas!! </h1>
-            {% endif %}
-        </main>
+                            </section>
+                        </section>
+                        <section class="format_icon_btn_cad">
+                            <input type="submit" name="enviar" value="CADASTRAR" id="btn_adicionar">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF" class="icon_btn"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q65 0 123 19t107 53l-58 59q-38-24-81-37.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160q32 0 62-6t58-17l60 61q-41 20-86 31t-94 11Zm280-80v-120H640v-80h120v-120h80v120h120v80H840v120h-80ZM424-296 254-466l56-56 114 114 400-401 56 56-456 457Z"/></svg>
+                        </section>
+                    </form>
+                </section>
+                <section class="format_table">
+                    {%  if tarefas  %}
+                        <table>
+                        <section class="table_header">
+                            TAREFAS
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M222-200 80-342l56-56 85 85 170-170 56 57-225 226Zm0-320L80-662l56-56 85 85 170-170 56 57-225 226Zm298 240v-80h360v80H520Zm0-320v-80h360v80H520Z"/></svg>
+                        </section>
+                            <tr>
+                                <td> Tarefa </td>
+                                <td> Data </td>
+                                <td> Prioridade </td>
+                                <td> Status</td>
+                                <td> Deletar</td>
+                                <td> Alterar</td>
+                            </tr>
+                            {% for item in tarefas %}
+                                <tr>
+                                    <td> {{item.tarefa}} </td>
+                                    <td> {{item.data}} </td>
+                                    <td> {{item.nivel}} </td>
+                                    <td> 
+                                        <select name="status" id="status_tarefa">
+                                            <option value="pendente"> Pendente</option>
+                                            <option value="concluido"> Concluído</option>
+                                            <option value="em_andamento"> Em andamento</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <form action="/delete" method="POST"> <input type="hidden" name="id" value="{{ loop.index0 }}"><input type="submit" name="enviar" value="DELETAR" id="btn_deletar"></form>
+                                    </td>
+                                    <td>
+                                        <form action="/update" method="POST"> <input type="hidden" name="id" value="{{ loop.index0 }}"> <input type="submit" name="enviar" value="UPDATE" id="btn_update"> </form>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% else %}
+                        <section class="container_new_task">
+                            <img src="{{url_for('static', filename='images/NextTask.png')}}" alt="" class="logo">
+                            <h1> Insira novas tarefas!! </h1>
+                        </section>
+                    {% endif %}
+                </section>
+            </main>     
+        </body>
     </html> 

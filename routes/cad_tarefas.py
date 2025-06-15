@@ -52,4 +52,3 @@ def salvar_tarefa_editada():
     tarefas[id_tarefa]['nivel'] = request.form['nivel'].upper()
 
     return render_template('home.html', tarefas=tarefas)
-

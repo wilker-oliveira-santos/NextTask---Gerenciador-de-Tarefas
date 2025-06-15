@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Tarefa</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='update.css')}}">
 </head>
 <body>
     <header>
         <img src="{{ url_for('static', filename='images/NextTask.png') }}" alt="" class="logo">
-        <h1>Editar Tarefa</h1>
     </header>
     <main>
         <form action="/salvar" method="POST">
+            <h1>Editar Tarefa</h1>
             <input type="hidden" name="id" value="{{ id }}">
 
             <label for="tarefa">Tarefa:</label><br>

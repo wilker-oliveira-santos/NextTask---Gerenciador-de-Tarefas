@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="shortcut icon" type="image/x-icon" href="./static/images/favicon.ico">
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 </head>
 <body>
     <img src="{{ url_for('static', filename='images/background.png') }}" alt="fundo" class="background-image">
@@ -13,7 +15,7 @@
         <img src="{{ url_for('static', filename='images/NextTask-white.png') }}" alt="">
         <nav>
             <ul>
-                <li>SOBRE NÓS</li>
+                <button>SOBRE NÓS</button>
             </ul>
         </nav>
     </header>
@@ -21,9 +23,17 @@
     <main>
         <section class="containerLeft">
             <h1>ORGANIZE SEU DIA. AUMENTE SUA PRODUTIVIDADE, SIMPLIFIQUE SUA VIDA.</h1>
+            <section class="format-line">
+                <section> </section>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M222-200 80-342l56-56 85 85 170-170 56 57-225 226Zm0-320L80-662l56-56 85 85 170-170 56 57-225 226Zm298 240v-80h360v80H520Zm0-320v-80h360v80H520Z"/></svg>
+                <section></section>
+            </section>
             <section class="description">
                 <p>Com o Next Task, você tem controle total das suas tarefas diárias de forma simples, intuitiva e eficiente. Chega de esquecer prazos ou se perder em anotações soltas — aqui suas prioridades ganham foco e resultado.</p>
-                <a href="{{ url_for('index.home') }}" class="btn-home"> COMEÇE A ORGANIZAR!</a>
+                <a href="{{ url_for('index.home') }}" class="btn-home">
+                    COMEÇE AGORA
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
+                </a>
             </section>
         </section>
 
@@ -33,5 +43,13 @@
             </figure>
         </section>
     </main>
+        <script>
+            gsap.from("main",{
+                duration:1.5,
+                ease: "power4.out",
+                x: -500,
+            }
+            );
+        </script>
 </body>
 </html>
