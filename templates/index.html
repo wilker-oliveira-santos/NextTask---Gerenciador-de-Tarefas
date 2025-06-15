@@ -10,7 +10,7 @@
 <body>
     <img src="{{ url_for('static', filename='images/background.png') }}" alt="fundo" class="background-image">
     <header>
-        <img src="{{ url_for('static', filename='images/NextTask.png') }}" alt="">
+        <img src="{{ url_for('static', filename='images/NextTask-white.png') }}" alt="">
         <nav>
             <ul>
                 <li>SOBRE NÓS</li>
@@ -20,11 +20,11 @@
 
     <main>
         <section class="containerLeft">
-            <h1>Organize seu Dia. Aumente sua Produtividade. Simplifique sua Vida.</h1>
+            <h1>ORGANIZE SEU DIA. AUMENTE SUA PRODUTIVIDADE, SIMPLIFIQUE SUA VIDA.</h1>
             <section class="description">
                 <p>Com o Next Task, você tem controle total das suas tarefas diárias de forma simples, intuitiva e eficiente. Chega de esquecer prazos ou se perder em anotações soltas — aqui suas prioridades ganham foco e resultado.</p>
+                <a href="{{ url_for('index.home') }}" class="btn-home"> COMEÇE A ORGANIZAR!</a>
             </section>
-            <button><a href="{{ url_for('index.home') }}"> teste </a></button>
         </section>
 
         <section class="containerRight">
