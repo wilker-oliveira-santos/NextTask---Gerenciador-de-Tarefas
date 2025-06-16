@@ -4,36 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Tarefa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='update.css') }}">
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    <link rel="stylesheet" href="{{url_for('static', filename='update.css')}}">
 </head>
 <body>
-    <header>
-        <img src="{{ url_for('static', filename='images/NextTask.png') }}" alt="" class="logo">
-    </header>
-    <main>
-        <form action="/salvar" method="POST">
-            <h1>Editar Tarefa</h1>
-            <input type="hidden" name="id" value="{{ id }}">
+    <img src="{{ url_for('static', filename='images/background-update.png') }}" alt="fundo" class="background-image">
+        <main class="container">
+            <form action="/salvar" method="POST" class="form">
+                <img src="{{ url_for('static', filename='images/NextTask.png') }}" alt="Logo Next Task" class="logo">
+                <h1>Editar Tarefa</h1>
+                
+                <input type="hidden" name="id" value="{{ id }}">
 
-            <label for="tarefa">Tarefa:</label><br>
-            <input type="text" name="tarefa" id="tarefa" value="{{ tarefa.tarefa }}"><br><br>
+                <label for="tarefa">Tarefa:</label>
+                <input type="text" name="tarefa" id="tarefa" placeholder="Insira uma Tarefa" value="{{ tarefa.tarefa }}" required>
 
-            <label for="data">Data:</label><br>
-            <input type="date" name="data" id="data" value="{{ tarefa.data }}"><br><br>
+                <section class="row">
+                    <section class="column">
+                        <label for="data">Data:</label>
+                        <input type="date" name="data" id="data" value="{{ tarefa.data }}" required>
+                    </section>
 
-            <label for="nivel">Prioridade:</label><br>
-            <select name="nivel" id="nivel">
-                <option value="URGENTE" {% if tarefa.nivel == 'URGENTE' %}selected{% endif %}>Urgente</option>
-                <option value="MODERADO" {% if tarefa.nivel == 'MODERADO' %}selected{% endif %}>Moderado</option>
-                <option value="BAIXO" {% if tarefa.nivel == 'BAIXO' %}selected{% endif %}>Baixo</option>
-            </select><br><br>
+                    <section class="column">
+                        <label for="nivel">Prioridade:</label>
+                        <select name="nivel" id="nivel" required>
+                            <option value="URGENTE" {% if tarefa.nivel == 'URGENTE' %}selected{% endif %}>Urgente</option>
+                            <option value="MODERADO" {% if tarefa.nivel == 'MODERADO' %}selected{% endif %}>Moderado</option>
+                            <option value="BAIXO" {% if tarefa.nivel == 'BAIXO' %}selected{% endif %}>Baixo</option>
+                        </select>
+                    </section>
+                </section>
 
-            <input type="submit" value="SALVAR">
-        </form>
-
-        <br>
-        <a href="{{ url_for('cadastrar.cad_tarefas') }}">Cancelar</a>
-    </main>
+                <button type="submit" class="btn-salvar">SALVAR</button>
+                <a href="{{ url_for('cadastrar.cad_tarefas') }}" class="btn-cancelar">Cancelar</a>
+            </form>
+        </main>
 </body>
 </html>

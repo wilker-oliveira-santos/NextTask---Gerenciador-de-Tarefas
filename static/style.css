@@ -48,6 +48,10 @@ button{
     font-weight: bold;
 }
 
+button a {
+    color: #0c8853;
+}
+
 button:hover{
     list-style: none;
     background:transparent;
@@ -57,7 +61,10 @@ button:hover{
     color: #fff;
     font-weight: bold;
     transition:0.5s ease-in-out;
+}
 
+a:hover{
+    color: #fff;
 }
 
 figure img{

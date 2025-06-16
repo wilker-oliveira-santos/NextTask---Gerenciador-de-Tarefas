@@ -42,7 +42,7 @@ main{
 }
 
 #btn_adicionar{
-    background: linear-gradient(to left, #1e3a8a, #11998E, #22C55E);
+    background: linear-gradient(90deg, #2ECC71, #2980B9);
     width: 200px;
     color: #fff;
     border: none;

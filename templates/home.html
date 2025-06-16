@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Home </title>
         <link rel="shortcut icon" type="image/x-icon" href="./static/images/favicon.ico">
+        <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
         <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
     </head>
     <body>
@@ -81,6 +83,14 @@
                         </section>
                     {% endif %}
                 </section>
-            </main>     
+            </main>
+            <script>
+                gsap.from("main",{
+                    duration:1.5,
+                    ease: "power4.out",
+                    x: -500,
+                }
+                );
+            </script>
         </body>
     </html> 
