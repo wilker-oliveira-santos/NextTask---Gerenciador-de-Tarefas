@@ -183,6 +183,9 @@ tr{
 td{
     padding: 20px;
 }
+th{
+    color: #333;
+}
 
 .container_new_task{
     display: flex;
@@ -198,4 +201,9 @@ td{
     padding: 15px;
     color: #fff;
     border-radius: 20px;
+}
+h2{
+    padding: 15px;
+    text-align: center;
+    color: #2980B9;
 }

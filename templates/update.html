@@ -11,33 +11,23 @@
 <body>
     <img src="{{ url_for('static', filename='images/background-update.png') }}" alt="fundo" class="background-image">
         <main class="container">
-            <form action="/salvar" method="POST" class="form">
-                <img src="{{ url_for('static', filename='images/NextTask.png') }}" alt="Logo Next Task" class="logo">
-                <h1>Editar Tarefa</h1>
-                
+            <img src="{{ url_for('static', filename='images/NextTask.png') }}" alt="Logo" class="logo">
+            <form action="/salvar" method="POST" class="column">
                 <input type="hidden" name="id" value="{{ id }}">
+                <input type="hidden" name="origem" value="{{ origem }}">
 
-                <label for="tarefa">Tarefa:</label>
-                <input type="text" name="tarefa" id="tarefa" placeholder="Insira uma Tarefa" value="{{ tarefa.tarefa }}" required>
-
+                <label>Tarefa: <input type="text" name="tarefa" value="{{ tarefa.tarefa }}"></label><br>
                 <section class="row">
-                    <section class="column">
-                        <label for="data">Data:</label>
-                        <input type="date" name="data" id="data" value="{{ tarefa.data }}" required>
-                    </section>
-
-                    <section class="column">
-                        <label for="nivel">Prioridade:</label>
-                        <select name="nivel" id="nivel" required>
-                            <option value="URGENTE" {% if tarefa.nivel == 'URGENTE' %}selected{% endif %}>Urgente</option>
-                            <option value="MODERADO" {% if tarefa.nivel == 'MODERADO' %}selected{% endif %}>Moderado</option>
-                            <option value="BAIXO" {% if tarefa.nivel == 'BAIXO' %}selected{% endif %}>Baixo</option>
+                    <label>Data: <input type="date" name="data" value="{{ tarefa.data }}"></label><br>
+                    <label>Prioridade:
+                        <select name="nivel">
+                            <option value="urgente" {% if tarefa.nivel == 'URGENTE' %}selected{% endif %}>Urgente</option>
+                            <option value="moderado" {% if tarefa.nivel == 'MODERADO' %}selected{% endif %}>Moderado</option>
+                            <option value="baixo" {% if tarefa.nivel == 'BAIXO' %}selected{% endif %}>Baixo</option>
                         </select>
-                    </section>
+                    </label>
                 </section>
-
-                <button type="submit" class="btn-salvar">SALVAR</button>
-                <a href="{{ url_for('cadastrar.cad_tarefas') }}" class="btn-cancelar">Cancelar</a>
+                <input type="submit" value="Salvar" class="btn-salvar">
             </form>
         </main>
 </body>
